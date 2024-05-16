@@ -1,47 +1,51 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX 3
+#define MAX_NAME 30
+#define MAX_t 20
 
-typedef struct {
-    char cognome[20];
-    char nome[20];
-    int voto;
-} alunno;
 
-int main() {
-    alunno a[MAX];
-    int n;
-    int trovato = 0;
-    char cerca[20];
+struct animale {
+    char nome[MAX_NAME];
+    char tipo[MAX_t];
+    int peso;
+    struct data
+    {
+        int giorno;
+        char mese[12];
+        int anno;
+    }data_nascita;
+    
+}animale1, animale2;
+int main(void){
 
-    do {
-        printf("Inserire numero alunni: \n");
-        scanf("%d", &n);
-    } while (n > MAX || n < 1);
+   
+        strcpy(animale1.nome,"asia");
+        strcpy(animale1.tipo,"labrador");
+        animale1.peso = 45;
+        animale1.data_nascita.giorno = 14;
+        strcpy(animale1.data_nascita.mese,"novembre");
+        animale1.data_nascita.anno = 2014;
 
-    for (int i = 0; i < n; i++) { 
-        printf("Inserisci il cognome dell'alunno %d: \n", i + 1);
-        scanf("%s", a[i].cognome);
-        printf("Inserisci il nome dell'alunno %d: \n", i + 1);
-        scanf("%s", a[i].nome);
-        printf("Inserisci il voto: \n");
-        scanf("%d", &a[i].voto);
-    }
+        strcpy(animale2.nome,"spank");
+        strcpy(animale2.tipo,"maltese");
+        animale2.peso = 12;
+        animale2.data_nascita.giorno = 19;
+        strcpy(animale2.data_nascita.mese,"settembre");
+        animale2.data_nascita.anno = 2018;
 
-    printf("Inserire cognome alunno da cercare: \n");
-    scanf("%s", cerca); 
+    
+        printf("Il primo animale:\n");
+        printf("Nome: %s\n", animale1.nome);
+        printf("Tipo: %s\n", animale1.tipo);
+        printf("Peso: %d\n", animale1.peso);
+        printf("Data di nascita: %d %s %d\n", animale1.data_nascita.giorno, animale1.data_nascita.mese, animale1.data_nascita.anno);
 
-    for (int j = 0; j < n; j++) { 
-        if (strcmp(a[j].cognome, cerca) == 0) {
-            printf("Alunno trovato: \n%s\t%s\t%d\n", a[j].nome, a[j].cognome, a[j].voto);
-            trovato = 1;
-            break; 
-        }
-    }
+        printf("\n");
 
-    if (!trovato) {
-        printf("Alunno non trovato.\n");
-    }
-
-    return 0;
+        printf("Il secondo animale:\n");
+        printf("Nome: %s\n", animale2.nome);
+        printf("Tipo: %s\n", animale2.tipo);
+        printf("Peso: %d\n", animale2.peso);
+        printf("Data di nascita: %d %s %d\n", animale2.data_nascita.giorno, animale2.data_nascita.mese, animale2.data_nascita.anno);
+return 0;
 }

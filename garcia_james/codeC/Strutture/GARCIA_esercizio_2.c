@@ -18,25 +18,25 @@ void stampaData(struct data nascita) {
         "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
     };
 
-    // Controllo per stabilire il secolo dell'anno
+    
     int secolo = nascita.anno > 24 ? 1900 : 2000;
     int annoCompleto = secolo + nascita.anno;
 
-    // Controllo per assicurarsi che il mese e il giorno siano validi
+    
     if (nascita.mese < 1 || nascita.mese > 12 || nascita.giorno < 1 || nascita.giorno > 31) {
         printf("Data non valida.\n");
         return;
     }
 
-    // Controlla i mesi con meno di 31 giorni
+    
     if ((nascita.mese == 4 || nascita.mese == 6 || nascita.mese == 9 || nascita.mese == 11) && nascita.giorno > 30) {
         printf("Data non valida.\n");
         return;
     }
 
-    // Febbraio
+    
     if (nascita.mese == 2) {
-        // Controlla se è un anno bisestile
+        
         int bisestile = (annoCompleto % 4 == 0 && annoCompleto % 100 != 0) || (annoCompleto % 400 == 0);
         if (nascita.giorno > 29 || (nascita.giorno > 28 && !bisestile)) {
             printf("Data non valida.\n");
@@ -44,7 +44,7 @@ void stampaData(struct data nascita) {
         }
     }
 
-    // Stampa la data nella forma estesa
+   
     printf("%d %s %d\n", nascita.giorno, nomiMesi[nascita.mese - 1], annoCompleto);
 }
 
