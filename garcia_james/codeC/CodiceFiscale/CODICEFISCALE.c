@@ -304,6 +304,8 @@ void stampa_mese(char mese) {
        default:
            printf("Mese non valido");
            break;
+   char provincia[DIM];
+
    }
 }
 
